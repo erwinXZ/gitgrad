@@ -1,5 +1,7 @@
 var gulp        = require('gulp'),
     concat      = require('gulp-concat'),
+    babel       = require('gulp-babel'),
+    eslint      = require('gulp-eslint'),
     uglify      = require('gulp-uglify'),
     minifycss   = require('gulp-minify-css'),
     htmlreplace = require('gulp-html-replace');
@@ -49,9 +51,11 @@ gulp.task('move-fonts', function() {
     .pipe(gulp.dest('build/assets/fonts'));
 });
 /* Tareas de Cambios en tiempo real DEFAULT */
+
 // Escuchar cambios
 gulp.task('serve', function() {
     var files = [
+      '*.html',
       'views/*.html',
       'assets/css/**/*.css',
       'assets/js/**/*.js',
@@ -59,12 +63,9 @@ gulp.task('serve', function() {
 
     ]
     browserSync.init(files,{
-        server: "./views"
+        server: "./"
     });
-    /*
-    gulp.watch("source/sass/*.scss", ['sass']);
-    gulp.watch("source/css/*.css", ['minify-css']);
-    gulp.watch("source/js/*.js", ['minify-js']);*/
+    /*gulp.watch("assets/ecma6/*.js", ['lint']);*/
     gulp.watch("views/*.html").on('change', browserSync.reload);
 });
 

@@ -1,3 +1,3 @@
 window.onload = function(){
-    alert('si funciona');
+    console.info('jala a la perfeccion');
 }
