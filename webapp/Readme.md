@@ -4,7 +4,7 @@ Aquí estara los pasos que se usaran para la construcción de la app.
 
 # Design
 
-Se genero un template con gulp para un agil proceso de maquetación
+Se genero un template con gulp para un ágil proceso de maquetación
 
 ## Instalación
 
