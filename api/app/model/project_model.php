@@ -70,18 +70,35 @@ class  ProjectModel
 
 		//$this->db->insertInto($this->table, $data)
 		//		 ->execute();
-		$this->db_pdo->prepare(" CALL insertProject(	'".$data['_name']."',
+		$this->db_pdo->multi_query(" CALL insertProject('".$data['_name']."',
 													'".$data['_modality']."',
-													'".$data['_hito']."',
-													'".$data['_grade']."',
-													'".$data['_id_student']."')")
-					  ->execute();
-
-		return $this->response->setResponse(true);
+													'".$data['_gestion']."',
+													'".$data['_cu']."',
+													'".$data['_id_teacher']."')");
+		$res = $this->db_pdo->store_result();
+		$res = $res->fetch_array();
+		mysqli_close($this->db_pdo);
+		$res = array("message"=>$res[0],"response"=>true);
+		return $res;	
 		//  return $data = $this->db_pdo->query('select * from '.$this->table)
 		//					 			->fetchAll();
 		//call insertUser('Belen','Rodriguez Soliz','elenrodrigu@gmail.com','79302623','1',1,1,'2017-03-03 00:00:00',1);			 
 	}
+
+	public function projectsList($data){
+
+			$this->db_pdo->multi_query(" CALL listarProject(".$data.")");
+			$res = $this->db_pdo->store_result();
+			while($fila = $res->fetch_assoc()){
+				$arreglo[] = $fila;
+			}
+			$res = $arreglo;
+			mysqli_close($this->db_pdo);
+			$res = array("message"=>$res,"response"=>true);
+			return $res;
+			
+	}
+
 	//actualizar
 	public function update($data, $id){
 

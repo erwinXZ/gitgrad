@@ -64,26 +64,25 @@ class  StudentModel
 	}
 	//registrar
 
-	public function insert($data){
+	public function insertStudent($data){
 		// $data['password'] = md5($data['password']);
-		$data['password'] = $this->security->encriptar($data['password']);	
+		// $data['password'] = $this->security->encriptar($data['password']);	
 
 		//$this->db->insertInto($this->table, $data)
 		//		 ->execute();
-		$this->db_pdo->prepare(" CALL insertClient(	'".$data['_ci']."',
-													'".$data['_cu']."',
-													'".$data['_college_carrer']."',
-													'".$data['_telephone']."',
+		$this->db_pdo->multi_query(" CALL insertStudent('".$data['_name']."',
+													'".$data['_last_name']."',
+													'".$data['_email']."',
+													'".$data['_password']."',
 													'".$data['_cellphone']."',
-													'".$data['_status']."',
-													'".$data['_modality']."',
-													'".$data['_id_client']."')")
-					  ->execute();
-
-		return $this->response->setResponse(true);
-		//  return $data = $this->db_pdo->query('select * from '.$this->table)
-		//					 			->fetchAll();
-		//call insertUser('Belen','Rodriguez Soliz','elenrodrigu@gmail.com','79302623','1',1,1,'2017-03-03 00:00:00',1);			 
+													'".$data['_cu']."',
+													'".$data['_college_carrer']."')");
+		$res = $this->db_pdo->store_result();
+		$res = $res->fetch_array();
+		mysqli_close($this->db_pdo);
+		$res = array("message"=>$res[0],"response"=>true);
+		return $res;	
+													
 	}
 	//actualizar
 	public function update($data, $id){

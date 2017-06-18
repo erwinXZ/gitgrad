@@ -64,23 +64,42 @@ class  TeacherModel
 	}
 	//registrar
 
-	public function insert($data){
+	// public function insert($data){
+	// 	// $data['password'] = md5($data['password']);
+	// 	$data['password'] = $this->security->encriptar($data['password']);	
+
+	// 	//$this->db->insertInto($this->table, $data)
+	// 	//		 ->execute();
+	// 	$this->db_pdo->multi_query(" CALL insertTeacher('".$data['_name']."',
+	// 												'".$data['_last_name']."',
+	// 												'".$data['_email']."',
+	// 												'".$data['_password']."',
+	// 												'".$data['_cellphone']."'
+	// 												'".$data['_profession']."')");
+	// 	$res = $this->db_pdo->store_result();
+	// 	$res = $res->fetch_array();
+	// 	mysqli_close($this->db_pdo);
+	// 	$res = array("message"=>$res[0],"response"=>true);
+	// 	return $res;														 
+	// }
+	//actualizar
+	public function insertTeacher($data){
 		// $data['password'] = md5($data['password']);
-		$data['password'] = $this->security->encriptar($data['password']);	
 
 		//$this->db->insertInto($this->table, $data)
 		//		 ->execute();
-		$this->db_pdo->prepare(" CALL insertTeacher('".$data['_ci']."',
-													'".$data['_profession']."',
-													'".$data['_id_client']."')")
-					  ->execute();
-
-		return $this->response->setResponse(true);
-		//  return $data = $this->db_pdo->query('select * from '.$this->table)
-		//					 			->fetchAll();
-		//call insertUser('Belen','Rodriguez Soliz','elenrodrigu@gmail.com','79302623','1',1,1,'2017-03-03 00:00:00',1);			 
+		$this->db_pdo->multi_query(" CALL insertTeacher('".$data['_name']."',
+													'".$data['_last_name']."',
+													'".$data['_email']."',
+													'".$data['_password']."',
+													'".$data['_cellphone']."',
+													'".$data['_profession']."')");
+		$res = $this->db_pdo->store_result();
+		$res = $res->fetch_array();
+		mysqli_close($this->db_pdo);
+		$res = array("message"=>$res[0],"response"=>true);
+		return $res;														 
 	}
-	//actualizar
 	public function update($data, $id){
 
 		if (isset($data['password'])) {

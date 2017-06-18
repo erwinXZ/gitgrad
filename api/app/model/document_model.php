@@ -75,10 +75,7 @@ class  DocumentModel
 													'".$data['_id_proyect']."')")
 					  ->execute();
 
-		return $this->response->setResponse(true);
-		//  return $data = $this->db_pdo->query('select * from '.$this->table)
-		//					 			->fetchAll();
-		//call insertUser('Belen','Rodriguez Soliz','elenrodrigu@gmail.com','79302623','1',1,1,'2017-03-03 00:00:00',1);			 
+		return $this->response->setResponse(true);			 
 	}
 	//actualizar
 	public function update($data, $id){

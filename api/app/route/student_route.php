@@ -33,6 +33,22 @@ $app->group('/student',function(){
 				   	);
 	});
 
+	$this->post('/insertStudent/',function($req, $res, $args){
+		// $r = UserValidation::validate($req->getParsedBody());
+
+		// if(!$r->response){
+		// 	return $res->withHeader('Content-type', 'aplication/json')
+		// 			   ->withStatus(422)
+		// 			   ->write(json_encode($r->errors));
+		// }
+
+		return $res->withHeader('Content-type', 'aplication/json')
+			       -> write(
+						json_encode($this->model->Student->insertStudent($req->getParsedBody()))
+
+				   	);
+	});
+
 	$this->post('/',function($req, $res, $args){
 		// $r = UserValidation::validate($req->getParsedBody());
 
@@ -44,7 +60,7 @@ $app->group('/student',function(){
 
 		return $res->withHeader('Content-type', 'aplication/json')
 			       -> write(
-						json_encode($this->model->Student->insert($req->getParsedBody()))
+						json_encode($this->model->Student->insertStudent($req->getParsedBody()))
 
 				   	);
 	});
@@ -62,7 +78,7 @@ $app->group('/student',function(){
 		return $res->withHeader('Content-type', 'aplication/json')
 				   ->write(
 				   		json_encode($this->model->Student->update($req->getParsedBody(), $args['id'] ))
-				   		
+
 				   	);
 	});
 

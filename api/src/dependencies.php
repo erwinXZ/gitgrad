@@ -32,7 +32,15 @@ $container['db_mysqli'] = function ($c) {
 	$connectionString = $c->get('settings')['connectionString'];
 
 	$mysqli = new mysqli($connectionString['host'], $connectionString['user'], $connectionString['pass'], $connectionString['name_db']);
+	$mysqli->set_charset("utf8");
 	return $mysqli;
+};
+$container['db_pdo'] = function ($c) {
+	$connectionString = $c->get('settings')['connectionString'];
+	$pdo = new PDO($connectionString['dns'],$connectionString['user'],$connectionString['pass'],array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES 'utf8'"));
+	$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+	$pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_OBJ);
+	return $pdo;
 };
 // Models
 

@@ -57,7 +57,7 @@ class  ClientModel
 		];				  						 
 	}
 	//obtener
-	public function getUser($id){
+	public function getClient($id){
 
 		return $data = $this->db->from($this->table, $id)
 								->fetch();  						 
@@ -65,29 +65,35 @@ class  ClientModel
 	//registrar
 
 	public function insert($data){
-		// $data['password'] = md5($data['password']);
-		$data['password'] = $this->security->encriptar($data['password']);	
 
-		//$this->db->insertInto($this->table, $data)
-		//		 ->execute();
-		$this->db_pdo->prepare(" CALL insertClient(	'".$data['_name']."',
+		$this->db_pdo->multi_query(" CALL insertClient('".$data['_name']."',
 													'".$data['_last_name']."',
 													'".$data['_email']."',
 													'".$data['_password']."',
-													'".$data['_picture']."')")
-					  ->execute();
+													'".$data['_cellphone']."')");
+			$res = $this->db_pdo->store_result();
+			$res = $res->fetch_array();
+			mysqli_close($this->db_pdo);
+			$res = array("message"=>$res[0],"response"=>true);
+			return $res;			 
+	}
 
-		return $this->response->setResponse(true);
-		//  return $data = $this->db_pdo->query('select * from '.$this->table)
-		//					 			->fetchAll();
-		//call insertUser('Belen','Rodriguez Soliz','elenrodrigu@gmail.com','79302623','1',1,1,'2017-03-03 00:00:00',1);			 
+	public function signIn($data){
+		// $data['password'] = md5($data['password']);
+
+		//$this->db->insertInto($this->table, $data)
+		//		 ->execute();
+		$this->db_pdo->multi_query(" CALL signIn('".$data['_email']."',
+												'".$data['_password']."')");
+		$res = $this->db_pdo->store_result();
+			$res = $res->fetch_assoc();
+			mysqli_close($this->db_pdo);
+			$res = array("mesagge"=>$res);
+			$res["response"]=true;
+			return $res;																 
 	}
 	//actualizar
 	public function update($data, $id){
-
-		if (isset($data['password'])) {
-			$data['password'] = $this->security->encriptar($data['password']);	
-		}
 
 		$this->db->update($this->table, $data, $id)	
 				 ->execute();

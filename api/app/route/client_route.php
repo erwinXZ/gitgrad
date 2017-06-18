@@ -50,6 +50,38 @@ $app->group('/client',function(){
 				   	);
 	});
 
+	$this->post('/insertTeacher/',function($req, $res, $args){
+		// $r = UserValidation::validate($req->getParsedBody());
+
+		// if(!$r->response){
+		// 	return $res->withHeader('Content-type', 'aplication/json')
+		// 			   ->withStatus(422)
+		// 			   ->write(json_encode($r->errors));
+		// }
+
+		return $res->withHeader('Content-type', 'aplication/json')
+			       -> write(
+						json_encode($this->model->Client->insertTeacher($req->getParsedBody()))
+
+				   	);
+	});
+
+	$this->post('/signIn/',function($req, $res, $args){
+		// $r = UserValidation::validate($req->getParsedBody());
+
+		// if(!$r->response){
+		// 	return $res->withHeader('Content-type', 'aplication/json')
+		// 			   ->withStatus(422)
+		// 			   ->write(json_encode($r->errors));
+		// }
+
+		return $res->withHeader('Content-type', 'aplication/json')
+			       -> write(
+						json_encode($this->model->Client->signIn($req->getParsedBody()))
+
+				   	);
+	});
+
 	$this->put('/{id}',function($req, $res, $args){
 
 		// $r = UserValidation::validate($req->getParsedBody());
