@@ -1,0 +1,96 @@
+#gitgrad-nav{
+    width: 20%;
+    /* background: white; */
+    position: relative;
+    margin-top: 0px;
+    padding: 1px 10px;
+    border-radius: 2px;
+    /* padding-top: 0; */
+    z-index: 1;
+}
+#gitgrad-nav nav{
+    position: relative;
+    background:#494949;
+    width: 100%;
+    height: 100%;
+    padding: 15px 0px;
+}
+#gitgrad-nav nav .btn-plus{
+    background:rgba(66, 68, 64, 0.14);
+    color: white;
+    height: 35px;
+    width: 35px;
+    border-radius: 50%;
+    position: absolute;
+    right: 0;
+    top: 0;
+ 
+    text-align: center;
+    margin: 9px;
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 1px 5px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.2);
+    transition: all .3s ease-out;
+
+}
+#gitgrad-nav nav .btn-plus:hover{
+        box-shadow: 0 3px 3px 0 rgba(0,0,0,0.14), 0 1px 7px 0 rgba(0,0,0,0.12), 0 3px 1px -1px rgba(0,0,0,0.2);
+        background:  #8dc63f;
+        cursor: pointer;
+}
+
+#gitgrad-nav nav .btn-plus span{
+    font-size: 30px;
+    font-weight: 100;
+}
+#gitgrad-nav nav h4{
+    color: hsl(0,0%,85%);
+    text-align: center;
+    font-size: 20px;
+
+}
+.card-comentario{
+    background: white;
+    position: relative;
+    padding: 15px;
+    margin: 15px 0;
+    border-radius:2px;
+    box-shadow: 0 4px 5px 0 rgba(0,0,0,0.14), 0 1px 10px 0 rgba(0,0,0,0.12), 0 2px 4px -1px rgba(0,0,0,0.3); 
+}
+.card-comentario .description{
+    font-weight: 600;
+    font-size: 16px;
+    color: #2d2d2d;
+}
+.card-comentario .text{
+    font-size: 12px;
+    color: #2d2d2d;
+        margin-left: 18px;
+}
+.card-comentario .delete{
+    position: absolute;
+    right: 0;
+    margin: 14px;
+    cursor: pointer;
+    transition: all .3s ease-out;
+}
+.card-comentario .delete:hover{
+    color:red;
+}
+.user-icon{
+    background: url(images/user.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 15px;
+    height: 15px;
+    position: absolute;
+}
+.calendar-icon{
+    background: url(images/calendar.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 15px;
+    height: 15px;
+    position: absolute;
+    top: 
+}

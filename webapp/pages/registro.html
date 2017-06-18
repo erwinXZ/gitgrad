@@ -1,0 +1,62 @@
+    <div class="container container-registro animated fadeIn">
+        <div class="col-md-4 col-md-offset-4">
+            <h3 class="text-success">Registro de usuario</h3>
+                <!--nombre-->
+                <form name="frmUser" ng-submit="registrar(user)">
+                    <div class="form-group">
+                        <label for="nombreInput">Nombre</label>
+                        <input type="text" class="form-control" ng-model="user.name" id="nombreInput" placeholder="Nombre" requiered>
+                    </div>
+                    <!--apellido-->
+                    <div class="form-group">
+                        <label for="apeInput">Apellido</label>
+                        <input type="text" class="form-control" ng-model="user.lastname" id="apeInput" placeholder="Apellido" required>
+                    </div>
+                    <!--email-->
+                    <div class="form-group">
+                        <label for="emailInput">Email</label>
+                        <input type="email" class="form-control" ng-model="user.email" id="emailInput" placeholder="Email" required>
+                    </div>
+                     <!--pass-->
+                    <div class="form-group">
+                        <label for="passInput">Contraseña</label>
+                        <input type="password" class="form-control" ng-model="user.password" id="passInput" placeholder="Contraseña" required>
+                    </div>
+                    <!--Cellphone-->
+                    <div class="form-group">
+                        <label for="celular">Celular</label>
+                        <input type="text" class="form-control" ng-model="user.celular" id="celular" placeholder="Celular" required>
+                    </div>
+                    <!-- estudiante o docente -->
+                    <label class="radio-inline">
+                      <input type="radio" ng-model="seleccion.valor" value="docente"> Docente
+                    </label>
+                    <label class="radio-inline">
+                      <input type="radio" ng-model="seleccion.valor" value="estudiante"> Estudiante
+                    </label>
+                   <br><br>
+                    <div class="form-group animated pulse" ng-show="e_v">
+                        <label for="ciInput">CU</label>
+                        <input type="text" class="form-control" ng-model="user.cu" id="ciInput" placeholder="CU" >
+                    </div>
+                    <div class="form-group animated pulse" ng-show="e_v">
+                        <label for="ciInput">Carrera</label>
+                        <input type="text" class="form-control" ng-model="user.carrera" id="ciInput" placeholder="Carrera" >
+                    </div>
+                    <div class="form-group animated pulse" ng-show="d_v">
+                        <label for="profInput">Profesion</label>
+                        <input type="text" class="form-control" ng-model="user.profesion" id="profInput" placeholder="Profesion">
+                    </div>
+
+                    <button type="submit" class="btn btn-success btn-block" >Registrar</button>
+
+                    <center>
+                       <h3 class="animated pulse" ng-show="registro">Registrado Correctamente</h3>
+                       <h3 class="animated pulse" ng-show="error">Error en el registro, ya existe el usuario</h3>
+                    </center>
+                    
+
+                </form>
+
+        </div>
+    </div>
