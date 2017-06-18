@@ -17,6 +17,9 @@
                 </div>
                 <button type="submit" class="btn btn-success btn-block ">Acceder</button>
                 <a href="javascript:void(0)" ng-click="registro()" class="text-center link-registro">Registrarse</a>
+                <img class="img-loading" ng-show="user.visible" src="images/loading-circle.gif" alt="">
+				<h2 class="text-center text-success" ng-show="v1">Correcto</h2>
+                <h2 class="text-center text-danger" ng-show="v2">Credenciales inválidas</h2>
             </form>
         </div>
     </div>

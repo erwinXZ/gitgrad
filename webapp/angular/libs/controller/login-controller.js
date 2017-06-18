@@ -4,6 +4,8 @@ var app = angular.module('gitGradApp.loginCtrl', ["ngStorage"]);
 app.controller('loginCtrl', ['$scope','$window','loginServices','$sessionStorage', function($scope,$window,loginServices,$sessionStorage){
 	
     $scope.user = {};
+    $scope.v1 = false;
+    $scope.v2 = false;
     $scope.logIn = function(user){
         // console.log(user);
                 loginServices.logIn(user).then(function(){
@@ -12,9 +14,11 @@ app.controller('loginCtrl', ['$scope','$window','loginServices','$sessionStorage
                     if($scope.loginResponse.respuesta){
 					    // console.log($scope.loginResponse.respuesta);
 					    console.log("Login Incorrecto");
+                        $scope.v2 = true;
 			    	}else{
                         console.log("Login Correcto");
                         console.log($scope.loginResponse);
+                        $scope.v1 = true;
                         if($scope.loginResponse.rol == 2){
                             $sessionStorage.data = $scope.loginResponse;
                             console.log("Es docente");

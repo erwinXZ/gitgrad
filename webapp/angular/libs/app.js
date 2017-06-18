@@ -27,6 +27,10 @@ app.controller('mainCtrl', ['$scope','$http', function($scope,$http){
 		templateUrl: 'pages/docente/docente.html',
 		controller: 'docenteCtrl'
 	})
+	.when('/docente/proyectos', {
+		templateUrl: 'pages/docente/proyectos.html',
+		controller: 'docenteCtrl'
+	})
 	.when('/estudiante', {
 		templateUrl: 'pages/estudiante/estudiante.html',
 		controller: 'estudianteCtrl'
