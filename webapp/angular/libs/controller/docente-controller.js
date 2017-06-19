@@ -12,4 +12,10 @@ app.controller('docenteCtrl', ['$scope','$window','docenteServices','$sessionSto
      }
 
      $scope.listarProyectos($scope.docente.id);
+
+     $scope.irProyecto = function(id){
+
+        console.log(id);
+     
+    }
 }]) 
