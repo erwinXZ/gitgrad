@@ -43,13 +43,15 @@
                 <h1 class="text-primary text-center">Proyectos</h1>
         </section>
 
-        <input type="text" class="form-control" placeholder="Buscar" ng-model="buscador" required>
+        
 
          <!--Main content -->
         <section class="content" >
                 <div class="container">
                     <div class="col-md-offset-3 col-md-6">
-                        <div class="well cardPro" ng-click="irProyecto(proyecto.id)" ng-repeat=" proyecto in proyectos | filter:buscador ">
+                      <input type="text" class="form-control" placeholder="Buscar" ng-model="buscador" required>
+                        <br> 
+                        <div class="well cardPro" ng-click="irProyecto(proyecto)" ng-repeat=" proyecto in proyectos | filter:buscador ">
                               <span>{{ proyecto.project_name }}</span>
                               <p><span>Modalidad: </span>{{ proyecto.modality }} <span>Gestión: </span>{{ proyecto.gestion}}</p>
                               <p><span>Estado: </span>{{ proyecto.hito }} <span>Fecha de registro: </span> {{ proyecto.register_date }}</p>

@@ -13,9 +13,11 @@ app.controller('docenteCtrl', ['$scope','$window','docenteServices','$sessionSto
 
      $scope.listarProyectos($scope.docente.id);
 
-     $scope.irProyecto = function(id){
+     $scope.irProyecto = function(proyecto){
 
-        console.log(id);
+        console.log(proyecto);
+        $sessionStorage.dataProyect = $scope.proyecto;
+        $window.location.href = '#/docente';
      
     }
 }]) 
