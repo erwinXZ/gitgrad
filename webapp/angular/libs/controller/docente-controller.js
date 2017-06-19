@@ -16,8 +16,8 @@ app.controller('docenteCtrl', ['$scope','$window','docenteServices','$sessionSto
      $scope.irProyecto = function(proyecto){
 
         console.log(proyecto);
-        $sessionStorage.dataProyect = $scope.proyecto;
-        $window.location.href = '#/docente';
+        $sessionStorage.dataProyect = proyecto;
+        $window.location.href = '#/docente/revision';
      
     }
 }]) 

@@ -1,0 +1,54 @@
+    <div class="wrapper">
+
+      <!-- Main Header -->
+      <header class="main-header">
+
+        <!-- Logo -->
+        <a href="#" class="logo">
+          <!-- mini logo for sidebar mini 50x50 pixels -->
+          <span class="logo-mini"><b>GitGrad</b></span>
+          <!-- logo for regular state and mobile devices -->
+          <span class="logo-lg"><b> GitGrad </b></span>
+        </a>
+
+        <!-- Header Navbar -->
+        <nav class="navbar navbar-static-top" role="navigation">
+          <!-- Sidebar toggle button-->
+          <!--<a href=""  data-toggle="offcanvas" role="button">
+            <span class="glyphicon glyphicon-align-justify"></span>
+          </a>-->
+          <!-- Navbar Right Menu -->
+          <div class="navbar-custom-menu" style="height: 49px !important;">
+            <ul class="nav navbar-nav">
+
+
+              <!-- User Account Menu -->
+              <li class="dropdown user user-menu"
+                  ng-include="'template/usuario.html'">
+              </li>
+
+            </ul>
+          </div>
+        </nav>
+      </header>
+      <!-- Left side column. contains the logo and sidebar -->
+      <aside class="main-sidebar"
+          ng-include="'template/menu.html'">
+      </aside>
+
+      <!-- Content Wrapper. Contains page content -->
+      <div class="content-wrapper" style="min-height: 100vh;">
+        <!-- Content Header (Page header) -->
+        <section class="content-header" >
+                <h1 class="text-primary text-center">Revision Proyectos</h1>
+                <pre> {{ proyecto | json }}</pre>
+        </section>
+
+        
+      </div><!-- /.content-wrapper -->
+
+      <!-- Main Footer -->
+    
+
+
+    </div><!-- ./wrapper -->
