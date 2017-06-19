@@ -3116,6 +3116,21 @@ var pdfjsWebLibs;
        }, '({{pageNumber}} of {{pagesCount}})');
       } else {
        items.pageNumber.value = pageNumber;
+       //-------------------------------------------
+        console.log("pagina_0 "+pageNumber);
+        var a = [];
+        var interruptor = false;
+        $('.textLayer').children('div').each(function(index){
+            if($(this)[0].textContent == "This paper described how to run dynamic languages efficiently by") interruptor = true;
+            if(interruptor){
+              $(this).css('background', "#ffff00");
+            }
+            if($(this)[0].textContent == "paths and value types through the loop observed at run time. We") interruptor = false;
+            console.log($(this)[0].textContent)
+            a.push($(this));
+        });
+       //--------------------------------------------
+
       }
       items.previous.disabled = pageNumber <= 1;
       items.next.disabled = pageNumber >= pagesCount;

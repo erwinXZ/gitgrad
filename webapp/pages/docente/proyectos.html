@@ -48,22 +48,22 @@
             <div class="col-md-offset-4 col-md-4 animated bounceIn">
                 <form name="frmProyecto" ng-submit="insertarProyecto(proyecto)">
                     <div class="form-group">
-                        <label for="tituloInput">Título</label>
+                        <label for="tituloInput" style="color: #9e9e9e">Título</label>
                         <input type="text" class="form-control" ng-model="proyecto.name" id="tituloInput" placeholder="Título" required>
                     </div>
         
                     <div class="form-group">
-                        <label for="modInput">Modalidad</label>
+                        <label for="modInput" style="color: #9e9e9e">Modalidad</label>
                         <input type="text" class="form-control" ng-model="proyecto.modality" id="modInput" placeholder="Modalidad" required>
                     </div>
 
                     <div class="form-group">
-                        <label for="gestInput">Gestión</label>
+                        <label for="gestInput" style="color: #9e9e9e">Gestión</label>
                         <input type="text" class="form-control" ng-model="proyecto.gestion" id="gestInput" placeholder="Gestión" required>
                     </div>
 
                     <div class="form-group">
-                        <label for="cuInput">CU Estudiante</label>
+                        <label for="cuInput" style="color: #9e9e9e">CU Estudiante</label>
                         <input type="text" class="form-control" ng-model="proyecto.cu" id="cuInput" placeholder="Carnet Universitario" required>
                     </div>
                     <button type="submit" class="btn btn-success btn-block">Registrar proyecto</button>
