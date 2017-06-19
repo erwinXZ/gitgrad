@@ -42,7 +42,10 @@ app.controller('mainCtrl', ['$scope','$http', function($scope,$http){
 		templateUrl: 'pages/estudiante/estudiante.html',
 		controller: 'estudianteCtrl'
 	})
-	
+	.when('/viewer',{
+		templateUrl: 'viewer/viewer.html',
+		controller: ''
+	})
 
 });
 
