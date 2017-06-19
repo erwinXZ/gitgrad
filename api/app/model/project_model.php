@@ -73,13 +73,10 @@ class  ProjectModel
 													'".$data['_cu']."',
 													'".$data['_id_teacher']."')");
 		$res = $this->db_pdo->store_result();
-		$res = $res->fetch_array();
-		mysqli_close($this->db_pdo);
-		$res = array("message"=>$res[0],"response"=>true);
-		return $res;	
-		//  return $data = $this->db_pdo->query('select * from '.$this->table)
-		//					 			->fetchAll();
-		//call insertUser('Belen','Rodriguez Soliz','elenrodrigu@gmail.com','79302623','1',1,1,'2017-03-03 00:00:00',1);			 
+			$res = $res->fetch_array();
+			mysqli_close($this->db_pdo);
+			$res = array("message"=>$res[0],"response"=>true);
+			return $res;					 
 	}
 
 	public function projectsList($data){

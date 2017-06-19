@@ -26,7 +26,6 @@ var self ={
                     $http({
                       method: 'POST',
 					  	url: 'http://192.168.1.7/gitgrad/api/public/project/',
-                        // url: 'http://localhost/gitgrad/APIPOLLO/public/observation/read/',
                         data:{
 								_name:datos.name,
 								_modality:datos.modality,
