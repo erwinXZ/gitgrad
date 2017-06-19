@@ -77,6 +77,22 @@ class  DocumentModel
 
 		return $this->response->setResponse(true);			 
 	}
+
+	public function docsList($data){
+
+		//$this->db->insertInto($this->table, $data)
+		//		 ->execute();
+		$this->db_pdo->multi_query(" CALL docsList(".$data.")");
+			$res = $this->db_pdo->store_result();
+			while($fila = $res->fetch_assoc()){
+				$arreglo[] = $fila;
+			}
+			$res = $arreglo;
+			mysqli_close($this->db_pdo);
+			$res = array("message"=>$res,"response"=>true);
+			return $res;
+			
+	}
 	//actualizar
 	public function update($data, $id){
 

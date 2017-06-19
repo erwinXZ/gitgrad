@@ -65,9 +65,6 @@ class  ProjectModel
 	//registrar
 
 	public function insert($data){
-		// $data['password'] = md5($data['password']);
-		$data['password'] = $this->security->encriptar($data['password']);	
-
 		//$this->db->insertInto($this->table, $data)
 		//		 ->execute();
 		$this->db_pdo->multi_query(" CALL insertProject('".$data['_name']."',

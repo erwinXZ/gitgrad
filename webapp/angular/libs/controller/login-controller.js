@@ -15,10 +15,12 @@ app.controller('loginCtrl', ['$scope','$window','loginServices','$sessionStorage
 					    // console.log($scope.loginResponse.respuesta);
 					    console.log("Login Incorrecto");
                         $scope.v2 = true;
+                        $scope.v1 = false;
 			    	}else{
                         console.log("Login Correcto");
                         console.log($scope.loginResponse);
                         $scope.v1 = true;
+                        $scope.v2 = false;
                         if($scope.loginResponse.rol == 2){
                             $sessionStorage.data = $scope.loginResponse;
                             console.log("Es docente");
