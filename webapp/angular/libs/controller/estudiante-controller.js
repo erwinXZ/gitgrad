@@ -17,7 +17,7 @@ app.controller('estudianteCtrl', ['$http','$scope','$window','FileUploader','$se
             var name = $scope.name;
             var file = $scope.file;
             
-        estudianteServices.uploadFile(file, name).then(function(res)
+        estudianteServices.uploadFile(file, name, $scope.user.id).then(function(res)
             {
                 console.log(res);
             })

@@ -21,11 +21,12 @@ var self ={
                        return d.promise;	 
 	
 				},
-			uploadFile : function(file, name){
+			uploadFile : function(file, name,id){
 					var d = $q.defer();
 					var formData = new FormData();
 					formData.append("name", name);
 					formData.append("file", file);
+					formData.append("id", id);
 					return $http.post("http://localhost/pruebaAngular/archivo.php", formData, {
 						headers: {
 							"Content-type": undefined
