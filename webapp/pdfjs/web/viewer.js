@@ -17,7 +17,7 @@
 var data = sessionStorage.getItem('ngStorage-dataDocument');
 var dataDocument = JSON.parse(data);
 // console.log(dataProyecto);
-var DEFAULT_URL = '../../docs/'+dataDocument.file;
+var DEFAULT_URL = '../../../api/docs/files/'+dataDocument.file;
 
 var pdfjsWebLibs;
 {
