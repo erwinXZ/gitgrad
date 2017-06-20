@@ -40,20 +40,25 @@
       <div class="content-wrapper" style="min-height: 100vh;">
         <!-- Content Header (Page header) -->
         <section class="content-header" >
-                <h1 class="text-primary text-center">Revision Proyectos</h1>
+          <br>
+            <h1 class="text-primary text-center">Revision Proyectos</h1>
+          <br><br>
         </section>
-        <table class="table table-bordered text-center" style="max-width: 98%; margin: 1.10%; background: #42a5f5">
-          <tr> 
-            <th>Documento</th>
-            <th>Estado</th> 
-            <th>Enviar</th>
-          </tr>
-         <tr ng-repeat="documento in documentos" style="background: #cfd8dc; color: black">
-              <td>{{documento.file}}</td>
-              <td>{{documento.status}}</td> 
-              <td><a href="" style="color: blue">Enviar</a></td>
-            </tr>
-        </table>
+        <div class="container">
+              <table class="table table-bordered" style="background:#2196f3">
+                <tr> 
+                  <th>Documento</th>
+                  <th>Estado</th> 
+                  <th>Enviar</th>
+                </tr>
+              <tr ng-repeat="documento in documentos" style="background: #cfd8dc; color: black">
+                    <td>{{documento.file}}</td>
+                    <td>{{documento.status}}</td> 
+                    <td><a href="" style="color: blue" ng-click="verDocumento(documento)">Revisar</a></td>
+                  </tr>
+              </table>
+        </div>
+
 
         
       </div><!-- /.content-wrapper -->

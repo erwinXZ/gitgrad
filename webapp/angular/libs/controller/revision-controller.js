@@ -8,9 +8,16 @@ app.controller('revisionCtrl', ['$scope','$window','revisionServices','$sessionS
     $scope.listarDocumentos = function(id){
         revisionServices.listarDocumentos(id).then(function(){
             console.log(revisionServices.response.message);
-            $scope.documentos = revisionServices.response.message;
+            $scope.documentos = revisionServices.response.message;  
         });
     }
+    
     $scope.listarDocumentos($scope.proyecto.id);
+
+    $scope.verDocumento = function (documento){
+        console.log(documento);
+        $sessionStorage.dataDocument = documento;
+        $window.location.href = 'http://localhost/gitgrad/webapp/pdfjs/web/viewer.html';
+    }
 
 }]) 
