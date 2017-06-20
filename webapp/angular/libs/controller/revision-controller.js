@@ -17,7 +17,7 @@ app.controller('revisionCtrl', ['$scope','$window','revisionServices','$sessionS
     $scope.verDocumento = function (documento){
         console.log(documento);
         $sessionStorage.dataDocument = documento;
-        $window.location.href = 'http://192.168.1.6/gitgrad/webapp/pdfjs/web/viewer.html';
+        $window.location.href = 'http://192.168.1.7/gitgrad/webapp/pdfjs/web/viewer.html';
     }
 
 }]) 
