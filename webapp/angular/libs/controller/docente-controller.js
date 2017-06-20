@@ -2,7 +2,7 @@ var app = angular.module('gitGradApp.docenteCtrl', ["ngStorage"]);
 
 // controlador clientes
 app.controller('docenteCtrl', ['$scope','$window','docenteServices','$sessionStorage', function($scope,$window,docenteServices,$sessionStorage){
-	 $scope.docente = $sessionStorage.data;
+	 $scope.user = $sessionStorage.data;
      $scope.proyectoInsertar = {}
      $scope.estudiante1 = false;
      $scope.estudiante2 = false;
@@ -14,7 +14,7 @@ app.controller('docenteCtrl', ['$scope','$window','docenteServices','$sessionSto
          });        
      }
 
-     $scope.listarProyectos($scope.docente.id);
+     $scope.listarProyectos($scope.user.id);
 
      $scope.irProyecto = function(proyecto){
 
@@ -37,6 +37,10 @@ app.controller('docenteCtrl', ['$scope','$window','docenteServices','$sessionSto
                 if(docenteServices.response.message == 1){
                        $scope.estudiante2 = true;
                        $scope.estudiante1 = false;
+                       setTimeout(function() {
+                        $window.location.href = '#/docente';    
+                       }, 2000);
+                       
                 }
                 // $scope.proyectos = docenteServices.response.message;
             });        
