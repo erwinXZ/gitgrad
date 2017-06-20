@@ -91,7 +91,18 @@ class  DocumentModel
 			mysqli_close($this->db_pdo);
 			$res = array("message"=>$res,"response"=>true);
 			return $res;
-			
+	}
+
+	public function uploadDoc($data){
+		//$this->db->insertInto($this->table, $data)
+		//		 ->execute();
+		$this->db_pdo->multi_query(" CALL uploadProjectS('".$data['_file']."',
+													'".$data['_id_project']."')");
+		$res = $this->db_pdo->store_result();
+			$res = $res->fetch_array();
+			mysqli_close($this->db_pdo);
+			$res = array("message"=>$res[0],"response"=>true);
+			return $res;					 
 	}
 	//actualizar
 	public function update($data, $id){
@@ -105,6 +116,9 @@ class  DocumentModel
 
 		return $this->response->setResponse(true);		 
 	}
+
+	
+
 	//eliminar
 	public function delete($id){
 

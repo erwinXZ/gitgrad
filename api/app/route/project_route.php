@@ -42,6 +42,14 @@ $app->group('/project',function(){
 				   	);
 	});
 
+	$this->get('/projectsListStudent/{id}',function($req, $res, $args){
+		return $res->withHeader('Content-type', 'aplication/json')
+				   ->write(
+				   		json_encode($this->model->Project->projectsListStudent($args['id']))
+				   		
+				   	);
+	});
+
 	$this->post('/',function($req, $res, $args){
 		// $r = UserValidation::validate($req->getParsedBody());
 
@@ -57,6 +65,23 @@ $app->group('/project',function(){
 
 				   	);
 	});
+
+	$this->post('/transfer/',function($req, $res, $args){
+		// $r = UserValidation::validate($req->getParsedBody());
+
+		// if(!$r->response){
+		// 	return $res->withHeader('Content-type', 'aplication/json')
+		// 			   ->withStatus(422)
+		// 			   ->write(json_encode($r->errors));
+		// }
+
+		return $res->withHeader('Content-type', 'aplication/json')
+			       -> write(
+						json_encode($this->model->Project->transfer($req->getParsedBody()))
+
+				   	);
+	});
+
 
 	$this->put('/{id}',function($req, $res, $args){
 

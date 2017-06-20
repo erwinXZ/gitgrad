@@ -57,6 +57,23 @@ $app->group('/document',function(){
 				   	);
 	});
 
+	$this->post('/uploadDoc/',function($req, $res, $args){
+		// $r = UserValidation::validate($req->getParsedBody());
+
+		// if(!$r->response){
+		// 	return $res->withHeader('Content-type', 'aplication/json')
+		// 			   ->withStatus(422)
+		// 			   ->write(json_encode($r->errors));
+		// }
+
+		return $res->withHeader('Content-type', 'aplication/json')
+			       -> write(
+						json_encode($this->model->Document->uploadDoc($req->getParsedBody()))
+
+				   	);
+	});
+
+
 	$this->put('/{id}',function($req, $res, $args){
 
 		// $r = UserValidation::validate($req->getParsedBody());
