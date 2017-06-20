@@ -3,43 +3,6 @@ var app = angular.module('gitGradApp.gitGradServices',[])
 app.factory('gitGradServices', ['$http','$q','$rootScope', function($http,$q,$rootScope){
 
 var self ={
-				//  guardar: function( medico ){
-				//  	var d = $q.defer()
-				// 	 console.log(medico)
-				//  	$http.post('api/public/medico/', medico)
-
-				//  	.success(function(respuesta){
-				 	
-				//  			self.cargarPagina(self.pag_actual)
-				//  			d.resolve()	
-				//  	})		
-				//  	return d.promise
-				//  },
-
-				//  eliminar: function( id ){
-				//  	var d = $q.defer()
-				// 	 console.log("id obser "+id)
-				// 	 $http.delete('http://192.168.1.11/Web/gitgrad/api/public/observation/'+id)
-				//  	.success(function(response){
-				// 			self.response = response.data;
-				//  			self.listar()
-				//  			d.resolve()	
-				//  	})
-				//  	return d.promise
-				//  },
-				// editar: function( medico, id ){
-				//  	var d = $q.defer()
-
-				// 	 $http.put('api/public/medico/'+id,medico)
-
-				//  	.success(function(respuesta){
-				 	
-				//  			self.cargarPagina(self.pag_actual)
-				//  			d.resolve()	
-				 				
-				//  	})
-				//  	return d.promise
-				//  },
 				insertar : function(datos){
 					var d = $q.defer();
 					console.log(datos);
@@ -74,8 +37,8 @@ var self ={
                        return d.promise;	 
 	
 				},		
-				listar : function(){
-					var doc = 1;
+				listar : function(id){
+					var doc = id;
 					var d = $q.defer()
                     $http({
                       method: 'POST',

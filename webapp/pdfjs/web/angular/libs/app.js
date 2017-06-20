@@ -1,19 +1,20 @@
-var app = angular.module( 'gitGradApp',[ 
-		// 'ngRoute','gitGradApp.form1Ctrl'
+var app = angular.module( 'gitGradApp',['ngStorage', 
 			'gitGradApp.gitGradServices'
 		]);
 
-app.controller('mainCtrl',['$scope','gitGradServices', function($scope,gitGradServices){
+app.controller('mainCtrl',['$scope','gitGradServices', '$sessionStorage',function($scope,gitGradServices,$sessionStorage){
 	// $scope.benji = "kaya";
 	   $scope.npage = "";
-		$scope.mostrar = function(){
-				gitGradServices.listar().then(function(){
+	   $scope.datosDocument = $sessionStorage.dataDocument;
+	//    console.log($scope.datos)
+		$scope.mostrar = function(id){
+				gitGradServices.listar(id).then(function(){
 					$scope.comentarios = gitGradServices.comentarios;
-					console.log("listar");
-					console.log($scope.comentarios)
+					// console.log("listar");
+					// console.log($scope.comentarios)
 				});
 		}	
-		$scope.mostrar();
+		$scope.mostrar($scope.datosDocument.id);
 
 		$scope.mostrarEliminar = function(id){
 			console.log(id);
