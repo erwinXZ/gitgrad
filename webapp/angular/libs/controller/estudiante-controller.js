@@ -6,12 +6,12 @@ app.controller('estudianteCtrl', ['$http','$scope','$window','FileUploader','$se
     $scope.user = $sessionStorage.data;
     $scope.datosProyecto = function(id){
         estudianteServices.datosProyecto(id).then(function(){
-            $scope.proyecto = estudianteServices.response.message;
+            $scope.proyecto = estudianteServices.response.message[0];
             console.log(estudianteServices.response.message);
         })
     }   
 
-    $scope.datosProyecto(14);
+    $scope.datosProyecto($scope.user.id);
 
     $scope.uploadFile = function(){
             var name = $scope.name;
