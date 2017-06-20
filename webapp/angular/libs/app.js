@@ -9,7 +9,8 @@ var app = angular.module('gitGradApp',['ngRoute',
 	'gitGradApp.estudianteServices',
 	'gitGradApp.registroServices',
 	'gitGradApp.docenteServices',
-	'gitGradApp.revisionServices'
+	'gitGradApp.revisionServices',
+	'gitGradApp.transferirServices'
 ]);
 
 app.controller('mainCtrl', ['$scope','$http', function($scope,$http){
