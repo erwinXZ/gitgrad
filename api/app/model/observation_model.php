@@ -102,15 +102,34 @@ class  ObservationModel
 	//actualizar
 	public function update($data, $id){
 
-		if (isset($data['password'])) {
-			$data['password'] = $this->security->encriptar($data['password']);	
-		}
+		// if (isset($data['password'])) {
+		// 	$data['password'] = $this->security->encriptar($data['password']);	
+		// }
 
 		$this->db->update($this->table, $data, $id)	
 				 ->execute();
 
 		return $this->response->setResponse(true);		 
 	}
+
+	public function updateObservation($data){
+		$this->db_mysqli->multi_query(" CALL updateObservation('".$data['_text']."',
+															'".$data['_id_observation']."')");
+		$res = $this->db_mysqli->store_result();
+			$res = $res->fetch_assoc();
+			mysqli_close($this->db_mysqli);
+			return $res;						 
+	}
+
+	public function updateObservationStatus($data){
+		$this->db_mysqli->multi_query(" CALL updateObservationStatus('".$data['_status']."',
+															'".$data['_id_observation']."')");
+			$res = $this->db_mysqli->store_result();
+			$res = $res->fetch_assoc();
+			mysqli_close($this->db_mysqli);
+			return $res;					 
+	}
+
 	//eliminar
 	public function delete($id){
 

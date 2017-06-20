@@ -100,6 +100,20 @@ class  TeacherModel
 		$res = array("message"=>$res[0],"response"=>true);
 		return $res;														 
 	}
+
+	public function reviewed($data){
+
+		//$this->db->insertInto($this->table, $data)
+		//		 ->execute();
+		$this->db_pdo->multi_query(" CALL reviewed(".$data.")");
+			$res = $this->db_pdo->store_result();
+			    while ($fila = $res->fetch_assoc()) {
+					$arreglo[] = $fila;
+    			}
+			mysqli_close($this->db_pdo);
+			return $arreglo;	
+	}
+
 	public function update($data, $id){
 
 		if (isset($data['password'])) {

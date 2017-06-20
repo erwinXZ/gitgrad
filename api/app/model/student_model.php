@@ -82,8 +82,21 @@ class  StudentModel
 		mysqli_close($this->db_pdo);
 		$res = array("message"=>$res[0],"response"=>true);
 		return $res;	
-													
 	}
+
+	public function listProjectStudent($data){
+
+		//$this->db->insertInto($this->table, $data)
+		//		 ->execute();
+		$this->db_pdo->multi_query(" CALL listProjectStudent(".$data.")");
+			$res = $this->db_pdo->store_result();
+			    while ($fila = $res->fetch_assoc()) {
+					$arreglo[] = $fila;
+    			}
+			mysqli_close($this->db_pdo);
+			return $arreglo;	
+	}
+
 	//actualizar
 	public function update($data, $id){
 

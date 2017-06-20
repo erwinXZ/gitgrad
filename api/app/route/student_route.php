@@ -33,6 +33,14 @@ $app->group('/student',function(){
 				   	);
 	});
 
+	$this->get('/listProyectStudent/{id}',function($req, $res, $args){
+		return $res->withHeader('Content-type', 'aplication/json')
+				   ->write(
+				   		json_encode($this->model->Student->listProjectStudent($args['id']))
+				   		
+				   	);
+	});
+
 	$this->post('/insertStudent/',function($req, $res, $args){
 		// $r = UserValidation::validate($req->getParsedBody());
 

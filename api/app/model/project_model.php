@@ -79,20 +79,44 @@ class  ProjectModel
 			return $res;					 
 	}
 
+	public function transfer($data){
+		//$this->db->insertInto($this->table, $data)
+		//		 ->execute();
+		$this->db_pdo->multi_query(" CALL transfer('".$data['_email_student']."',
+													'".$data['_email_teacher']."',
+													'".$data['_id_teacher']."')");
+		$res = $this->db_pdo->store_result();
+			$res = $res->fetch_array();
+			mysqli_close($this->db_pdo);
+			$res = array("message"=>$res[0],"response"=>true);
+			return $res;					 
+	}
+
+	
+
 	public function projectsList($data){
 
 			$this->db_pdo->multi_query(" CALL listarProject(".$data.")");
 			$res = $this->db_pdo->store_result();
-			while($fila = $res->fetch_assoc()){
-				$arreglo[] = $fila;
-			}
-			$res = $arreglo;
+			    while ($fila = $res->fetch_assoc()) {
+					$arreglo[] = $fila;
+    			}
 			mysqli_close($this->db_pdo);
-			$res = array("message"=>$res,"response"=>true);
-			return $res;
+			return $arreglo;	
 			
 	}
 
+	public function projectsListStudent($data){
+
+			$this->db_pdo->multi_query(" CALL listarProjectStudent(".$data.")");
+			$res = $this->db_pdo->store_result();
+			    while ($fila = $res->fetch_assoc()) {
+					$arreglo[] = $fila;
+    			}
+			mysqli_close($this->db_pdo);
+			return $arreglo;	
+			
+	}
 	//actualizar
 	public function update($data, $id){
 
