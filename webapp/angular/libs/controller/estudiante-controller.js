@@ -5,6 +5,7 @@ app.controller('estudianteCtrl', ['$http','$scope','$window','FileUploader','$se
 	
     $scope.user = $sessionStorage.data;
     $scope.mostrarCorrecto = false;
+    $scope.gif = false;
     $scope.datosProyecto = function(id){
         estudianteServices.datosProyecto(id).then(function(){
             $scope.proyecto = estudianteServices.response.message[0];
@@ -17,15 +18,13 @@ app.controller('estudianteCtrl', ['$http','$scope','$window','FileUploader','$se
     $scope.uploadFile = function(){
             var name = $scope.name;
             var file = $scope.file;
-            
+            $scope.gif = true;
         estudianteServices.uploadFile(file, name,$scope.proyecto.id).then(function(res)
             {
+                 
                 console.log(res);
-                if(res == 1){
-                    $scope.mostrarCorrecto = true;
-                }else{
-                    
-                }
+                $scope.gif = false;
+                $scope.mostrarCorrecto = true;
             })
         }
     
