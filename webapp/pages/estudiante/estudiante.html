@@ -58,11 +58,10 @@
                         </div>
                         <br>
                         
-                        <div nv-file-drop="" uploader="uploader" options="{ url: '/foo' }">
-                            <div nv-file-over="" uploader="uploader" over-class="another-file-over-class" class="well my-drop-zone">
-                                Another drop zone with its own settings
-                            </div>
-                        </div>
+                        <form name="upload" ng-submit="uploadFile()">
+                            <input type="file" name="file" uploader-model="file" /> <br>
+                            <input type="submit" class="btn btn-success" value="Enviar"> 
+                        </form>
                     </div>
                 </div>
                 
