@@ -5,6 +5,7 @@ var app = angular.module('gitGradApp',['ngRoute',
 	'gitGradApp.loginServices',
 	'gitGradApp.registroCtrl',
 	'gitGradApp.revisionCtrl',
+	'gitGradApp.estudianteServices',
 	'gitGradApp.registroServices',
 	'gitGradApp.docenteServices',
 	'gitGradApp.revisionServices'
