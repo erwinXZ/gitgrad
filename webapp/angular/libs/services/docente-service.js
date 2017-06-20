@@ -23,32 +23,32 @@ var self ={
 				insertarProyecto : function(datos){
 					var d = $q.defer();
 					console.log(datos);
-                    $http({
-                      method: 'POST',
-					  	url: 'http://192.168.1.7/gitgrad/api/public/project/',
-                        data:{
-								_name:datos.name,
-								_modality:datos.modality,
-								_gestion:datos.gestion,
-								_cu:datos.cu,
-								_id_teacher:datos.id_docente
-						}
-                    	})
-                        .then(function successCallback(response) {
-                                // ok
-                                // self.cargado		= true;
-    							// self.cargando		= false;
-								self.response 	= response.data;
+                    // $http({
+                    //   method: 'POST',
+					//   	url: 'http://192.168.1.7/gitgrad/api/public/project/',
+                    //     data:{
+					// 			_name:datos.name,
+					// 			_modality:datos.modality,
+					// 			_gestion:datos.gestion,
+					// 			_cu:datos.cu,
+					// 			_id_teacher:datos.id_docente
+					// 	}
+                    // 	})
+                    //     .then(function successCallback(response) {
+                    //             // ok
+                    //             // self.cargado		= true;
+    				// 			// self.cargando		= false;
+					// 			self.response 	= response.data;
 								
-								return d.resolve()	
-                            }, function errorCallback(response) {
-                            // ko
-                            	return d.resolve()	
-                                // self.cargado		= true;
-    							// self.cargando		= false;
-								self.response 	= response.data
-                        });
-                       return d.promise;	 
+					// 			return d.resolve()	
+                    //         }, function errorCallback(response) {
+                    //         // ko
+                    //         	return d.resolve()	
+                    //             // self.cargado		= true;
+    				// 			// self.cargando		= false;
+					// 			self.response 	= response.data
+                    //     });
+                    //    return d.promise;	 
 	
 				}
 

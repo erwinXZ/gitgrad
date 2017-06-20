@@ -25,7 +25,7 @@ app.controller('docenteCtrl', ['$scope','$window','docenteServices','$sessionSto
     }
     $scope.insertarProyecto = function(proyecto){
         $scope.proyectoInsertar = proyecto;
-        $scope.proyectoInsertar.id_docente = $scope.docente.id;
+        $scope.proyectoInsertar.id_docente = $scope.user.id;
         console.log($scope.proyectoInsertar);
 
             docenteServices.insertarProyecto($scope.proyectoInsertar).then(function(){

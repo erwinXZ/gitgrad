@@ -5,6 +5,7 @@ var app = angular.module('gitGradApp',['ngRoute',
 	'gitGradApp.loginServices',
 	'gitGradApp.registroCtrl',
 	'gitGradApp.revisionCtrl',
+	'gitGradApp.transferirCtrl',
 	'gitGradApp.estudianteServices',
 	'gitGradApp.registroServices',
 	'gitGradApp.docenteServices',
@@ -43,10 +44,10 @@ app.controller('mainCtrl', ['$scope','$http', function($scope,$http){
 		templateUrl: 'pages/estudiante/estudiante.html',
 		controller: 'estudianteCtrl'
 	})
-	// .when('/viewer',{
-	// 	templateUrl: 'viewer/viewer.html',
-	// 	controller: ''
-	// })
+	.when('/docente/transferir',{
+		templateUrl: 'pages/docente/transferir/transferir.html',
+		controller: 'transferirCtrl'
+	})
 
 });
 
