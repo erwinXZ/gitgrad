@@ -1,8 +1,8 @@
-var app = angular.module('gitGradApp.estudianteCtrl', []);
+var app = angular.module('gitGradApp.estudianteCtrl', ["ngStorage"]);
 
 // controlador clientes
-app.controller('estudianteCtrl', ['$scope','$window','loginServices', function($scope,$window,loginServices){
+app.controller('estudianteCtrl', ['$scope','$window','loginServices','$sessionStorage', function($scope,$window,loginServices,$sessionStorage){
 	
-    $scope.estudiante = "estudiante";
+    $scope.user = $sessionStorage.data;
 
 }]) 

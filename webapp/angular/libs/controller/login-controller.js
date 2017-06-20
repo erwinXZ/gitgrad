@@ -31,6 +31,10 @@ app.controller('loginCtrl', ['$scope','$window','loginServices','$sessionStorage
                         }else{
                             console.log("Es Estudiante");
                             $sessionStorage.data = $scope.loginResponse;
+                            setTimeout(function() {
+                                 $window.location.href = '#/estudiante';
+                             }, 2000);
+                            
                         }   
                     }
                 
