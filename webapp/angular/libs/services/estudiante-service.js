@@ -27,7 +27,7 @@ var self ={
 					formData.append("name", name);
 					formData.append("file", file);
 					formData.append("id", id);
-					return $http.post("http://localhost/pruebaAngular/archivo.php", formData, {
+					return $http.post("http://192.168.1.7/gitgrad/api/docs/archivo.php", formData, {
 						headers: {
 							"Content-type": undefined
 						},

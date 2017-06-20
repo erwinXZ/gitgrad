@@ -98,11 +98,13 @@ class  ProjectModel
 
 			$this->db_pdo->multi_query(" CALL listarProject(".$data.")");
 			$res = $this->db_pdo->store_result();
-			    while ($fila = $res->fetch_assoc()) {
-					$arreglo[] = $fila;
-    			}
+			while($fila = $res->fetch_assoc()){
+				$arreglo[] = $fila;
+			}
+			$res = $arreglo;
 			mysqli_close($this->db_pdo);
-			return $arreglo;	
+			$res = array("message"=>$res,"response"=>true);
+			return $res;
 			
 	}
 
@@ -110,11 +112,13 @@ class  ProjectModel
 
 			$this->db_pdo->multi_query(" CALL listarProjectStudent(".$data.")");
 			$res = $this->db_pdo->store_result();
-			    while ($fila = $res->fetch_assoc()) {
-					$arreglo[] = $fila;
-    			}
+			while($fila = $res->fetch_assoc()){
+				$arreglo[] = $fila;
+			}
+			$res = $arreglo;
 			mysqli_close($this->db_pdo);
-			return $arreglo;	
+			$res = array("message"=>$res,"response"=>true);
+			return $res;
 			
 	}
 	//actualizar
