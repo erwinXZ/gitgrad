@@ -4,6 +4,7 @@ var app = angular.module('gitGradApp.estudianteCtrl', ["ngStorage", "angularFile
 app.controller('estudianteCtrl', ['$http','$scope','$window','FileUploader','$sessionStorage', 'estudianteServices',function($http,$scope,$window,FileUploader,$sessionStorage, estudianteServices){
 	
     $scope.user = $sessionStorage.data;
+    $scope.mostrarCorrecto = false;
     $scope.datosProyecto = function(id){
         estudianteServices.datosProyecto(id).then(function(){
             $scope.proyecto = estudianteServices.response.message[0];
@@ -20,6 +21,11 @@ app.controller('estudianteCtrl', ['$http','$scope','$window','FileUploader','$se
         estudianteServices.uploadFile(file, name,$scope.proyecto.id).then(function(res)
             {
                 console.log(res);
+                if(res == 1){
+                    $scope.mostrarCorrecto = true;
+                }else{
+                    
+                }
             })
         }
     
