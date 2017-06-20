@@ -33,7 +33,6 @@ if (mysqli_multi_query($link, $query)) {
         }
         /* mostrar divisor */
         if (mysqli_more_results($link)) {
-            printf("-----------------\n");
         }
     } while (mysqli_next_result($link));
 }
