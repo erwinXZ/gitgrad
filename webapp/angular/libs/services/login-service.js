@@ -8,7 +8,7 @@ var self ={
 					// console.log(datos);
                     $http({
                       method: 'POST',
-					  	url: 'http://192.168.1.7/gitgrad/api/public/client/signIn/',
+					  	url: 'http://localhost/gitgrad/api/public/client/signIn/',
                         // url: 'http://localhost/gitgrad/APIPOLLO/public/observation/read/',
                         data:{
 								_email:datos.email,

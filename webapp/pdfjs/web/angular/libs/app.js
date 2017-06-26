@@ -6,12 +6,12 @@ app.controller('mainCtrl',['$scope','gitGradServices', '$sessionStorage',functio
 	// $scope.benji = "kaya";
 	   $scope.npage = "";
 	   $scope.datosDocument = $sessionStorage.dataDocument;
-	//    console.log($scope.datos)
+	   console.log($scope.datosDocument)
 		$scope.mostrar = function(id){
 				gitGradServices.listar(id).then(function(){
 					$scope.comentarios = gitGradServices.comentarios;
 					// console.log("listar");
-					// console.log($scope.comentarios)
+					console.log($scope.comentarios)
 				});
 		}	
 		$scope.mostrar($scope.datosDocument.id);
@@ -30,7 +30,7 @@ app.controller('mainCtrl',['$scope','gitGradServices', '$sessionStorage',functio
 				$scope.response = gitGradServices.response;
 				console.log($scope.response)
 				$("#eliminarModal").modal("hide");
-				$scope.mostrar();
+				$scope.mostrar($scope.datosDocument.id);
 			});
 			// $scope.id = 0;
 			// $("#eliminarModal").modal();
@@ -70,7 +70,7 @@ app.controller('mainCtrl',['$scope','gitGradServices', '$sessionStorage',functio
 			textend:textend,
 			npage:npage,
 			id_teacher:21,
-			id_document:1
+			id_document:$scope.datosDocument.id
 		}
 		console.log($scope.datos)
 
@@ -86,7 +86,7 @@ app.controller('mainCtrl',['$scope','gitGradServices', '$sessionStorage',functio
 			gitGradServices.insertar(datos).then(function(){
 				$scope.response = gitGradServices.response;
 				console.log($scope.response)
-				$scope.mostrar();
+				$scope.mostrar($scope.datosDocument.id);
 				$("#insertarModal").modal("hide");
 			});
 		}

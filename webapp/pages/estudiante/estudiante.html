@@ -55,8 +55,18 @@
                               <br>
                               <p><span>Modalidad: </span>{{proyecto.modality}} <span>Gestión: </span>{{proyecto.gestion}}</p>
                               <p><span>Estado: </span>{{proyecto.hito}} <span>Fecha de registro: </span> {{proyecto.register_date}}</p>
-                        </div>
-                        <br>
+                      </div>
+                        <br><br>
+                          <table class="table table-bordered" style="background:#2196f3">
+                            <tr> 
+                              <th>Documento Revisado por el Docente</th>
+                            </tr>
+                          <tr ng-repeat="doc in listaProyecto" style="background: #cfd8dc; color: black">
+                                <td>{{doc.file}}</td>
+                                <!--<td>{{documento.status}}</td> -->
+                              </tr>
+                          </table>
+                        <br><br>
                         
                         <form name="upload" ng-submit="uploadFile()">
                             <input type="file" name="file" uploader-model="file" /> <br>

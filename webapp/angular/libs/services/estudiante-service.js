@@ -8,7 +8,7 @@ var self ={
 					// console.log(datos);
                     $http({
                       method: 'GET',
-					  	url: 'http://192.168.1.7/gitgrad/api/public/project/projectsListStudent/'+id,
+					  	url: 'http://localhost/gitgrad/api/public/project/projectsListStudent/'+id,
                     	})
                         .then(function successCallback(response) {
 								self.response 	= response.data;
@@ -27,7 +27,7 @@ var self ={
 					formData.append("name", name);
 					formData.append("file", file);
 					formData.append("id", id);
-					return $http.post("http://192.168.1.7/gitgrad/api/docs/archivo.php", formData, {
+					return $http.post("http://localhost/gitgrad/api/docs/archivo.php", formData, {
 						headers: {
 							"Content-type": undefined
 						},
@@ -42,7 +42,25 @@ var self ={
 								self.response 	= response.data
                         });
 					return d.promise;
-				}	
+				},
+				listaProyecto : function(id){
+					var d = $q.defer();
+					// console.log(datos);
+                    $http({
+                      method: 'GET',
+					  	url: 'http://localhost/gitgrad/api/public/student/listProyectStudent/'+id,
+                    	})
+                        .then(function successCallback(response) {
+								self.response 	= response.data;
+                                console.log(self.response);
+								return d.resolve()	
+                            }, function errorCallback(response) {
+                            	return d.resolve()	
+								self.response 	= response.data
+                        });
+                       return d.promise;	 
+	
+				},	
 
 
 	}

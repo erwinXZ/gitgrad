@@ -11,9 +11,19 @@ app.controller('estudianteCtrl', ['$http','$scope','$window','FileUploader','$se
             $scope.proyecto = estudianteServices.response.message[0];
             console.log(estudianteServices.response.message);
         })
-    }   
+    }
+    $scope.listaProyecto = function(id){
+        estudianteServices.listaProyecto(id).then(function(){
+            $scope.listaProyecto = estudianteServices.response;
+            console.log($scope.listaProyecto);
+        })
+    }      
 
     $scope.datosProyecto($scope.user.id);
+    setTimeout(function() {
+        $scope.listaProyecto($scope.proyecto.id);
+    }, 1000);
+    
 
     $scope.uploadFile = function(){
             var name = $scope.name;

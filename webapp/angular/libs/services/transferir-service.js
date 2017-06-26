@@ -8,7 +8,7 @@ var self ={
 					// console.log(datos);
                     $http({
                       method: 'POST',
-					  	url: 'http://192.168.1.7/gitgrad/api/public/project/transfer/',
+					  	url: 'http://localhost/gitgrad/api/public/project/transfer/',
                     	data:{
 								_email_student:email.student,
 								_email_teacher:email.teacher,

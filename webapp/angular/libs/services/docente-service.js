@@ -8,7 +8,7 @@ var self ={
 					// console.log(datos);
                     $http({
                       method: 'GET',
-					  	url: 'http://192.168.1.7/gitgrad/api/public/project/projectsList/'+id,
+					  	url: 'http://localhost/gitgrad/api/public/project/projectsList/'+id,
                     	})
                         .then(function successCallback(response) {
 								self.response 	= response.data;
@@ -25,7 +25,7 @@ var self ={
 					console.log(datos);
                     $http({
                      	method: 'POST',
-					  	url: 'http://192.168.1.7/gitgrad/api/public/project/',
+					  	url: 'http://localhost/gitgrad/api/public/project/',
                         data:{
 								_name:datos.name,
 								_modality:datos.modality,

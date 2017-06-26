@@ -8,7 +8,7 @@ var self ={
 					console.log(datos);
                     $http({
                       method: 'POST',
-					  	url: 'http://192.168.1.7/gitgrad/api/public/teacher/insertTeacher/',
+					  	url: 'http://localhost/gitgrad/api/public/teacher/insertTeacher/',
                         // url: 'http://localhost/gitgrad/APIPOLLO/public/observation/read/',
                         data:{
 								_name:datos.name,
@@ -41,7 +41,7 @@ var self ={
 					console.log(datos);
                     $http({
                       method: 'POST',
-					  	url: 'http://192.168.1.7/gitgrad/api/public/student/insertStudent/',
+					  	url: 'http://localhost/gitgrad/api/public/student/insertStudent/',
                         // url: 'http://localhost/gitgrad/APIPOLLO/public/observation/read/',
                         data:{
 								_name:datos.name,

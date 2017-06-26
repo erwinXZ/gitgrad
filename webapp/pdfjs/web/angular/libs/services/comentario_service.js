@@ -8,7 +8,7 @@ var self ={
 					console.log(datos);
                     $http({
                       method: 'POST',
-					  	url: 'http://192.168.1.7/gitgrad/api/public/observation/',
+					  	url: 'http://192.168.43.178/gitgrad/api/public/observation/',
                         // url: 'http://localhost/gitgrad/APIPOLLO/public/observation/read/',
                         data:{
 								_text:datos.text,
@@ -42,7 +42,7 @@ var self ={
 					var d = $q.defer()
                     $http({
                       method: 'POST',
-					  	url: 'http://192.168.1.7/gitgrad/api/public/observation/read/',
+					  	url: 'http://192.168.43.178/gitgrad/api/public/observation/read/',
                         // url: 'http://localhost/gitgrad/APIPOLLO/public/observation/read/',
                         data:{'id':doc}
                     	})
@@ -68,7 +68,7 @@ var self ={
 					var d = $q.defer()
                     $http({
                       method: 'DELETE',
-					  	url: 'http://192.168.1.7/gitgrad/api/public/observation/'+id,
+					  	url: 'http://192.168.43.178/gitgrad/api/public/observation/'+id,
                         // url: 'http://localhost/gitgrad/APIPOLLO/public/observation/read/',
                     	})
                         .then(function successCallback(response) {
